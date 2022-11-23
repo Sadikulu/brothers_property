@@ -1,8 +1,10 @@
 package com.realestate.domain;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
@@ -55,7 +58,9 @@ public class User {
 	
 	@Column(length = 75, nullable = false)
 	private Boolean builtIn=false;
-		
+	
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+	private List<TourRequest> tourRequest;
 		
 	@ManyToMany
 	@JoinTable(name = "tbl_user_role",

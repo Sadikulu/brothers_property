@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class VRResponse {
+public class REResponse {
 
 	private String message;
 	

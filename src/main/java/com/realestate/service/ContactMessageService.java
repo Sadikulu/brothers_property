@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.realestate.domain.ContactMessage;
 import com.realestate.exception.ResourceNotFoundException;
-import com.realestate.exception.message.ErrorMessages;
+import com.realestate.exception.message.ErrorMessage;
 import com.realestate.repository.ContactMessageRepository;
 
 @Service
@@ -37,7 +37,7 @@ public class ContactMessageService {
 
 	public ContactMessage getMessageById(Long id) {
 		return contactMessageRepository.findById(id).orElseThrow(()->
-		new ResourceNotFoundException(String.format(ErrorMessages.RESOURCE_NOT_FOUND, id)));
+		new ResourceNotFoundException(String.format(ErrorMessage.RESOURCE_NOT_FOUND_MESSAGE, id)));
 	}
 
 	public void deleteContactMessage(Long id) {
@@ -55,11 +55,7 @@ public class ContactMessageService {
 		foundContactMessage.setEmail(contactMessage.getEmail());
 		foundContactMessage.setSubject(contactMessage.getSubject());
 		
-		contactMessageRepository.save(foundContactMessage);
-		
-		
-		
+		contactMessageRepository.save(foundContactMessage);	
 	}
 
-	
 }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.realestate.exception.message.ErrorMessages;
+import com.realestate.exception.message.ErrorMessage;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -49,7 +49,7 @@ public class JwtUtils {
 			return true;
 		} catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException |
 				SignatureException | IllegalArgumentException e ) {
-			logger.error(String.format(ErrorMessages.JWTTOKEN_ERROR_MESSAGE, e.getMessage()));
+			logger.error(String.format(ErrorMessage.JWTTOKEN_ERROR_MESSAGE, e.getMessage()));
 		}
 		return false ;
 	}

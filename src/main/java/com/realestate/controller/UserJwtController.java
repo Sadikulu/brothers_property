@@ -17,7 +17,7 @@ import com.realestate.dto.request.LoginRequest;
 import com.realestate.dto.request.RegisterRequest;
 import com.realestate.dto.response.LoginResponse;
 import com.realestate.dto.response.ResponseMessage;
-import com.realestate.dto.response.VRResponse;
+import com.realestate.dto.response.REResponse;
 import com.realestate.security.jwt.JwtUtils;
 import com.realestate.service.UserService;
 
@@ -32,9 +32,9 @@ public class UserJwtController {
 
 	// register user
 	@PostMapping("/register")
-	public ResponseEntity<VRResponse> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
-		userService.createUser(registerRequest);
-		VRResponse response = new VRResponse(ResponseMessage.REGISTER_USER, true);
+	public ResponseEntity<REResponse> registerUser(@Valid @RequestBody RegisterRequest registerRequest) {
+		userService.saveUser(registerRequest);
+		REResponse response = new REResponse(ResponseMessage.REGİSTER_RESPONSE_MESSAGE, true);
 		return ResponseEntity.ok(response);
 	}
 
