@@ -1,6 +1,6 @@
 package com.realestate.domain.enums;
 
-public enum Category {
+public enum PropertyCategory {
 	HOUSE,
 	VILLA,
 	LAND
