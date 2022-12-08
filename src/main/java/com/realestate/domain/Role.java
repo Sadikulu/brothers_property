@@ -11,20 +11,19 @@ import javax.persistence.Table;
 
 import com.realestate.domain.enums.RoleType;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="tbl_role")
 @Entity
+@Table(name = "t_role")
 public class Role {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -39,5 +38,5 @@ public class Role {
 	}
 	
 	
-
+	
 }

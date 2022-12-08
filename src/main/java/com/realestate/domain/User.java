@@ -15,58 +15,61 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="tbl_user")
 @Entity
+@Table(name = "t_user")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length = 75, nullable = false)
+	@Column(length = 50,nullable = false)
 	private String firstName;
 	
-	@Column(length = 50, nullable = false)
+	@Column(length = 50,nullable = false)
 	private String lastName;
 	
-	@Column(length = 75, nullable = false,unique = true)
-	@Email(message = "Provide valid email")
+	@Column(length = 80,nullable = false,unique = true)
 	private String email;
 	
-	@Column(length = 75, nullable = false)
-	private String phoneNumber;
-	
-	@Column(length = 75, nullable = false)
+	@Column(length = 120,nullable = false)
 	private String password;
 	
-	@Column(length = 75, nullable = false)
+	@Column(length = 14,nullable = false)
+	private String phoneNumber;
+	
+	@Column(length = 100,nullable = false)
 	private String address;
 	
-	@Column(length = 75, nullable = false)
+	@Column(length = 15,nullable = false)
 	private String zipCode;
 	
-	@Column(length = 75, nullable = false)
+	@Column(nullable = false)
 	private Boolean builtIn=false;
 	
 	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-	private List<TourRequest> tourRequest;
-		
-	@ManyToMany
-	@JoinTable(name = "tbl_user_role",
-	joinColumns = @JoinColumn(name="user_id"),
-	inverseJoinColumns= @JoinColumn(name="role_id"))
-	private  Set<Role> roles=new HashSet<>();
+	@JsonIgnore
+	private List<Review> review;
 	
-
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<TourRequest> tourRequest;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "t_user_role",
+	           joinColumns = @JoinColumn(name="user_id"),
+	           inverseJoinColumns = @JoinColumn(name="role_id"))
+	private Set<Role> roles=new HashSet<>();
 }

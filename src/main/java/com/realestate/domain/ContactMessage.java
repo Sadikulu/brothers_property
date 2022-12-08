@@ -17,33 +17,32 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "tbl_cmessage")
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContactMessage {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Size(min = 2,max = 50,message = "Your name '${validatedValue}' must be between {min} and {max} chars long")
-	@NotNull(message = "Please provide your name")
-	@Column(length = 50,nullable = false)
-	private String name;
-	
-	@Size(min = 5,max = 50,message = "Your message subject '${validatedValue}' must be between {min} and {max} chars long")
-	@NotNull(message = "Please provide your message subject")
-	@Column(length = 50,nullable = false)
-	private String subject;
-	
-	@Size(min = 5,max = 200,message = "Your message body '${validatedValue}' must be between {min} and {max} chars long")
-	@NotNull(message = "Please provide your message body")
-	@Column(length = 200,nullable = false)
-	private String body;
-	
-	@Email(message = "Provide valid email")
-	@Column(length = 50,nullable = false)
-	private String email;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Size(min = 1,max = 50,message = "Your name '${validatedValue}' must be between {min} and {max} chars long")
+    @NotNull(message = "Please provide your name")
+    @Column(length = 50,nullable = false)
+    private String name;
+
+    @Size(min = 5,max = 50,message = "Your subject '${validatedValue}' must be between {min} and {max} chars long")
+    @NotNull(message = "Please provide your subject")
+    @Column(length = 50,nullable = false)
+    private String subject;
+
+    @Size(min = 5,max = 200,message = "Your body '${validatedValue}' must be between {min} and {max} chars long")
+    @NotNull(message = "Please provide your body")
+    @Column(length = 200,nullable = false)
+    private String body;
+
+    @Email(message = "Provide valid email")
+    @Column(length = 50,nullable = false)
+    private String email;
 }
+

@@ -1,9 +1,8 @@
 package com.realestate.domain.enums;
 
 public enum RoleType {
-	
+
 	ROLE_CUSTOMER("Customer"),
-	
 	ROLE_ADMIN("Administrator");
 	
 	private String name;
@@ -16,7 +15,4 @@ public enum RoleType {
 		return name;
 	}
 	
-	
-	
-
 }
