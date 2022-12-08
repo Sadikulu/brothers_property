@@ -53,7 +53,7 @@ public class PropertyRequest {
 	
 	@NotBlank(message = "Please provide estate's address")
 	@Size(min = 5,max = 100)
-	private String address;
+	private String adress;
 	
 	@NotBlank(message = "Please provide estate's country")
 	@Size(min = 2,max = 50)

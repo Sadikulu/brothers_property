@@ -78,7 +78,7 @@ public class PropertyService {
 			}
 		
 		property.setAgent(agent);
-		property.setAddress(propertyRequest.getAddress());
+		property.setAdress(propertyRequest.getAdress());
 		property.setArea(propertyRequest.getArea());
 		property.setBathrooms(propertyRequest.getBathrooms());
 		property.setBedrooms(propertyRequest.getBedrooms());

@@ -41,7 +41,7 @@ public class PropertyDTO {
 	
 	private String location;
 	
-	private String address;
+	private String adress;
 	
 	private String country;
 	
