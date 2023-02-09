@@ -1,9 +1,4 @@
-server:
- port: 8091
- error:
-  include-binding-errors: always
-  include-message: always
-  include-stacktrace: never
+
 spring:
  datasource:
   url: jdbc:postgresql://dpg-cficsm9gp3jh03j2nhng-a.oregon-postgres.render.com:5432/database_realestate_db_ix3n
