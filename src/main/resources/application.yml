@@ -6,9 +6,9 @@ server:
   include-stacktrace: never
 spring:
  datasource:
-  url: jdbc:postgresql://dpg-cfibql9gp3jh03irvmhg-a.oregon-postgres.render.com:3306/database_realestate_db
-  username: database_realestate_db_user
-  password: u0HsbKZQ5rKheh3wOdcUj5kHNH3arxDF
+  url: jdbc:postgresql://dpg-cficsm9gp3jh03j2nhng-a.oregon-postgres.render.com:5432/database_realestate_db_ix3n
+  username: database_realestate_db_ix3n_user
+  password: oQtTIG9JskFBbxvypNq0AlMQhqPjoigt
   driver-class-name: org.postgresql.Driver
  jpa:
   hibernate:
